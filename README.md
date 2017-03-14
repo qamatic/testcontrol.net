@@ -15,6 +15,11 @@ TestControl is a light weight test automation framework for Windows Native, WinF
 - It is customizable with by writing your own plugin extenders for example like generate your own test scripts in any language or detail inspection of a UI element on the screen in a customized way
 - No license needed because its an OpenSource    
 
+## Documentation
+
+- [Documentation](https://qamatic.github.io/testcontrol.net/)
+
+
 ##### Supports Applications written in
 - C#
 - Visual Basic
