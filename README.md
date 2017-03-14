@@ -1,4 +1,4 @@
-![logo](https://github.com/qamatic/testcontrol.net/blob/master/doc/www/img/bullseye.png)
+![logo](https://github.com/qamatic/testcontrol.net/blob/master/doc/www/img/bullseye120.png)
 # Testcontrol.Net
 ##Windows desktop automation made easy!
 
