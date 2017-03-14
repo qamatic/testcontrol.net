@@ -5,28 +5,27 @@
 TestControl is a light weight test automation framework for Windows Native, WinForm and WPF applications.
 
 ##### Spy
-
 A simple Spy tool that identifies screen elements on your application and provides easy way to manipulate them.
 
 ##### Tools and API
-
 Write your automation with your own choice of test frameworks that works in CI/CD integrations like MSTest, NUnit, Cucumber SpecFlow or using Fitnesse
 
 ##### Time and Money
-
 Save time and Money with TestControl Framework, write automated tests for .NET in more reliable and in a resolution agnostic way.
 
-##### Key features
-
-- Create resilient automated tests with your own programming choice and style
-- Regression tests - use industry standard popular build tools for running your automations.
-- Supports 32bit and 64bit applications
-- Extensibility support via plugins - You can create plugins for to support additional automation cabilities to any custom controls.
-- CEF-Sharp and CEF-Glue browser supports - via Selenium extension
-
+##### Key features 
+- A light weight framework - just few assembly DLLs required to get started
+- Spy Tool which helps to recognize the objects on the screen
+- Provides solid mechanism for identifying screen elements consistently in more reliable and in a resolution agnostic way
+- Screen element locators are prone to developer changes(no more xpath!)
+- In-Built smart wait logic for handling real time use cases
+- Supports Windows Native, WinForm and WPF applications
+- Supports Embedded Chrome Browser (CEFSharp) thru Selenium Extension
+- Write your automation with your own choice of test runners like MSTest, NUnit, Cucumber SpecFlow or using Fitnesse
+- It is customizable with by writing your own plugin extenders for example like generate your own test scripts in any language or detail inspection of a UI element on the screen in a customized way
+- No license needed because its an OpenSource    
 
 ##### Supports Applications written in
-
 - C#
 - Visual Basic
 - C/C++
@@ -37,21 +36,18 @@ Save time and Money with TestControl Framework, write automated tests for .NET i
 - 3rd Party Applications Controls
 
 ##### Microsoft
-
 - Any Standard window controls
 - DevExpress Controls
 - Infragistics
 - WPF toolkit controls
 
 ##### Build Tools
-
 - Jenkin
 - TFS
 - Team City
 - any tool that supports .net
 
 ##### Write your automated Tests in
-
 - MSTest
 - NUnit
 - SpecFlow.NET
@@ -59,7 +55,6 @@ Save time and Money with TestControl Framework, write automated tests for .NET i
 
 
 ##### MIT License
-
 Copyright (c) 2010-2017 QAmatic Team
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
