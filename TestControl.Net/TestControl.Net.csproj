@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestControl.Net</RootNamespace>
+    <AssemblyName>TestControl.Net</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1762</NoWarn>
+    <DocumentationFile>
+    </DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1762</NoWarn>
+    <DocumentationFile>
+    </DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoWarn>1762</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>1762</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Build\x64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoWarn>1762</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\Build\x64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>1762</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TestControl.Natives, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\TestControl.Natives.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BDD\Interfaces\TestAddinManager.cs" />
+    <Compile Include="BDD\Interfaces\IFixtureData.cs" />
+    <Compile Include="BDD\Interfaces\IFixtureResult.cs" />
+    <Compile Include="BDD\Interfaces\IFixtureTable.cs" />
+    <Compile Include="BDD\Interfaces\IFixtureTextData.cs" />
+    <Compile Include="BDD\Interfaces\IPersistanceTreeNode.cs" />
+    <Compile Include="BDD\Interfaces\ISuite.cs" />
+    <Compile Include="BDD\Interfaces\ITestCase.cs" />
+    <Compile Include="BDD\Interfaces\ITestEngine.cs" />
+    <Compile Include="BDD\Interfaces\ITestFrameworkAddin.cs" />
+    <Compile Include="BDD\Interfaces\ITestLink.cs" />
+    <Compile Include="BDD\Interfaces\ITestListner.cs" />
+    <Compile Include="BDD\Interfaces\ITestNode.cs" />
+    <Compile Include="BDD\Interfaces\ITestReportWriter.cs" />
+    <Compile Include="BDD\Interfaces\ITestScriptProvider.cs" />
+    <Compile Include="BDD\Interfaces\ITreeChildEnumerator.cs" />
+    <Compile Include="BDD\Ioc\InstanceBehaviour.cs" />
+    <Compile Include="BDD\Ioc\IServiceContext.cs" />
+    <Compile Include="BDD\Ioc\Services.cs" />
+    <Compile Include="BDD\Scanners\FixtureData.cs" />
+    <Compile Include="BDD\Scanners\FixtureResult.cs" />
+    <Compile Include="BDD\Scanners\FixtureTable.cs" />
+    <Compile Include="BDD\Scanners\FixtureTextData.cs" />
+    <Compile Include="BDD\Scanners\Suite.cs" />
+    <Compile Include="BDD\Scanners\TestCase.cs" />
+    <Compile Include="BDD\Scanners\TestLink.cs" />
+    <Compile Include="BDD\Scanners\TestNode.cs" />
+    <Compile Include="BDD\Scanners\TreeChildEnumerator.cs" />
+    <Compile Include="BDD\TreeNodes\TreeProcessor.cs" />
+    <Compile Include="BDD\TreeNodes\TreeViewTreeNode.cs" />
+    <Compile Include="Extensions\UiaElementWrapper.cs" />
+    <Compile Include="Extensions\UiaMenuControl.cs" />
+    <Compile Include="Extensions\UiaTreeViewControl.cs" />
+    <Compile Include="Extensions\UiaListBox.cs" />
+    <Compile Include="Interfaces\IGridViewControl.cs" />
+    <Compile Include="Interfaces\IWebBrowser.cs" />
+    <Compile Include="Interfaces\IWebDriverExtension.cs" />
+    <Compile Include="StdControls\GridViewControl.cs" />
+    <Compile Include="TestControlRig.cs" />
+    <Compile Include="Interfaces\ControlProperties.cs" />
+    <Compile Include="Interfaces\IMenuControl.cs" />
+    <Compile Include="Interfaces\IAppInject.cs" />
+    <Compile Include="Interfaces\ITreeViewControl.cs" />
+    <Compile Include="Interfaces\ITestContextAware.cs" />
+    <Compile Include="Interfaces\IWindow.cs" />
+    <Compile Include="Locators\ClickNonWindowControlByCaption.cs" />
+    <Compile Include="Extras\NoLogger.cs" />
+    <Compile Include="ControlLocatorDefRepo.cs" />
+    <Compile Include="Locators\FindByName.cs" />
+    <Compile Include="StdControls\MenuStrip.cs" />
+    <Compile Include="StdControls\ButtonControl.cs" />
+    <Compile Include="StdControls\CheckBoxControl.cs" />
+    <Compile Include="StdControls\MenuControl.cs" />
+    <Compile Include="StdControls\TreeViewControl.cs" />
+    <Compile Include="StdControls\ComboBoxControl.cs" />
+    <Compile Include="StdControls\EditorControl.cs" />
+    <Compile Include="Locators\FindChildByCaption.cs" />
+    <Compile Include="Interfaces\IListBoxControl.cs" />
+    <Compile Include="ElementUnderTest.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Interfaces\IWin32MarkerExtension.cs" />
+    <Compile Include="Locators\MouseClick.cs" />
+    <Compile Include="Locators\FindByAutomationId.cs" />
+    <Compile Include="Locators\FindByCaption.cs" />
+    <Compile Include="Locators\FromHandle.cs" />
+    <Compile Include="StdControls\ListBoxControl.cs" />
+    <Compile Include="StdControls\RadioButtonControl.cs" />
+    <Compile Include="Locators\RightClickMouse.cs" />
+    <Compile Include="Locators\FindWindowByMousePosition.cs" />
+    <Compile Include="Locators\FindDesktopWindow.cs" />
+    <Compile Include="Locators\FindWindow.cs" />
+    <Compile Include="Locators\MoveMouse.cs" />
+    <Compile Include="StdControls\ContextMenu.cs" />
+    <Compile Include="Locators\SendKeyStrokes.cs" />
+    <Compile Include="StdControls\TextBoxControl.cs" />
+    <Compile Include="Extensions\UiaExtension.cs" />
+    <Compile Include="StdControls\Window.cs" />
+    <Compile Include="LoggerMgr.cs" />
+    <Compile Include="WebControls\WebBrowserControl.cs" />
+    <Compile Include="WinControlUnderTest.cs" />
+    <Compile Include="CodeHelper.cs" />
+    <Compile Include="CodeHelperItem.cs" />
+    <Compile Include="ControlLocatorDef.cs" />
+    <Compile Include="Locators\FindControl.cs" />
+    <Compile Include="Interfaces\IControlLocatorDef.cs" />
+    <Compile Include="Interfaces\IFindControl.cs" />
+    <Compile Include="Interfaces\IRadioButtonControl.cs" />
+    <Compile Include="Interfaces\IEditorControl.cs" />
+    <Compile Include="Interfaces\ITextBoxControl.cs" />
+    <Compile Include="Interfaces\IComboBoxControl.cs" />
+    <Compile Include="Interfaces\ICheckBoxControl.cs" />
+    <Compile Include="Interfaces\IGridControl.cs" />
+    <Compile Include="Interfaces\IButtonControl.cs" />
+    <Compile Include="Interfaces\ISpyAddin.cs" />
+    <Compile Include="Interfaces\ICodeBase.cs" />
+    <Compile Include="Interfaces\ITestControlSelection.cs" />
+    <Compile Include="Interfaces\IScript.cs" />
+    <Compile Include="Interfaces\ICodeHelper.cs" />
+    <Compile Include="Interfaces\ICodeHelperItem.cs" />
+    <Compile Include="Interfaces\ICodeGen.cs" />
+    <Compile Include="Interfaces\IElementUnderTest.cs" />
+    <Compile Include="Interfaces\ITestApplication.cs" />
+    <Compile Include="Interfaces\ITestControl.cs" />
+    <Compile Include="Locators\Wait.cs" />
+    <Compile Include="ApplicationUnderTest.cs" />
+    <Compile Include="TestControl.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

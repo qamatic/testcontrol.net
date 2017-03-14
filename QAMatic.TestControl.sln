@@ -1,0 +1,189 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestControl.Net", "TestControl.Net\TestControl.Net.csproj", "{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6852630-1717-41B0-810E-BED2842EF9D9}"
+	ProjectSection(SolutionItems) = preProject
+		ball.bat = ball.bat
+		Local.testsettings = Local.testsettings
+		TestControl.Net.vsmdi = TestControl.Net.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestControlTests", "TestControlTests\TestControlTests.csproj", "{3D929FAD-E6FB-4DAA-8601-5CF438F34572}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{7A8E2ADF-09CC-4265-A3E9-A187D431B89D}"
+	ProjectSection(SolutionItems) = preProject
+		Help\main.html = Help\main.html
+		Help\Site Map.sitemap = Help\Site Map.sitemap
+		Help\testcontrol.shfbproj = Help\testcontrol.shfbproj
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestControl.Spy", "TestControl.Spy\TestControl.Spy.csproj", "{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestControl.Extension.Example", "TestControl.Extension.Example\TestControl.Extension.Example.csproj", "{CF9E047A-D167-4A36-B979-8F88CACEE0C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestControl.Extension.Selenium", "TestControl.Extension.Selenium\TestControl.Extension.Selenium.csproj", "{8EC7A502-0DCA-4F02-AA1A-82A52114591D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestControl.Runner", "TestControl.Runner\TestControl.Runner.csproj", "{F045047A-218F-407E-A0A5-E868F0D21343}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Debug|x64.ActiveCfg = Debug|x64
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Debug|x64.Build.0 = Debug|x64
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Debug|x86.ActiveCfg = Debug|x86
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Debug|x86.Build.0 = Debug|x86
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Release|Win32.ActiveCfg = Release|Any CPU
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Release|x64.ActiveCfg = Release|x64
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Release|x64.Build.0 = Release|x64
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Release|x86.ActiveCfg = Release|Any CPU
+		{051E7CE9-EE31-4D2B-958B-6DB81F6DF337}.Release|x86.Build.0 = Release|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Debug|x64.Build.0 = Debug|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Debug|x86.Build.0 = Debug|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Release|Win32.ActiveCfg = Release|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Release|x64.ActiveCfg = Release|x64
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Release|x64.Build.0 = Release|x64
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Release|x86.ActiveCfg = Release|Any CPU
+		{3D929FAD-E6FB-4DAA-8601-5CF438F34572}.Release|x86.Build.0 = Release|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Debug|x64.ActiveCfg = Debug|x64
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Debug|x64.Build.0 = Debug|x64
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Debug|x86.ActiveCfg = Debug|x86
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Debug|x86.Build.0 = Debug|x86
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Release|Win32.ActiveCfg = Release|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Release|x64.ActiveCfg = Release|x64
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Release|x64.Build.0 = Release|x64
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Release|x86.ActiveCfg = Release|Any CPU
+		{0FD59D4E-7192-45A9-81E5-D03DDEB5B1F2}.Release|x86.Build.0 = Release|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Release|Win32.ActiveCfg = Release|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Release|x64.ActiveCfg = Release|Any CPU
+		{CF9E047A-D167-4A36-B979-8F88CACEE0C2}.Release|x86.ActiveCfg = Release|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Debug|Win32.Build.0 = Debug|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Debug|x64.Build.0 = Debug|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Debug|x86.Build.0 = Debug|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Release|Win32.ActiveCfg = Release|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Release|Win32.Build.0 = Release|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Release|x64.ActiveCfg = Release|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Release|x64.Build.0 = Release|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Release|x86.ActiveCfg = Release|Any CPU
+		{8EC7A502-0DCA-4F02-AA1A-82A52114591D}.Release|x86.Build.0 = Release|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Debug|Win32.Build.0 = Debug|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Debug|x64.Build.0 = Debug|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Debug|x86.Build.0 = Debug|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Release|Win32.ActiveCfg = Release|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Release|Win32.Build.0 = Release|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Release|x64.ActiveCfg = Release|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Release|x64.Build.0 = Release|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Release|x86.ActiveCfg = Release|Any CPU
+		{F045047A-218F-407E-A0A5-E868F0D21343}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7A8E2ADF-09CC-4265-A3E9-A187D431B89D} = {A6852630-1717-41B0-810E-BED2842EF9D9}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs05
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = TestControl.Net\\TestControl.Net.csproj
+		SccProjectName1 = TestControl.Net
+		SccLocalPath1 = TestControl.Net
+		SccProjectUniqueName2 = TestControlTests\\TestControlTests.csproj
+		SccProjectName2 = TestControlTests
+		SccLocalPath2 = TestControlTests
+		SccProjectUniqueName3 = TestControl.Spy\\TestControl.Spy.csproj
+		SccProjectName3 = TestControl.Spy
+		SccLocalPath3 = TestControl.Spy
+		SccProjectUniqueName4 = TestControl.Extension.Example\\TestControl.Extension.Example.csproj
+		SccProjectName4 = TestControl.Extension.Example
+		SccLocalPath4 = TestControl.Extension.Example
+		SccProjectUniqueName5 = TestControl.Extension.Selenium\\TestControl.Extension.Selenium.csproj
+		SccProjectName5 = TestControl.Extension.Selenium
+		SccLocalPath5 = TestControl.Extension.Selenium
+		SccProjectUniqueName6 = TestControl.Runner\\TestControl.Runner.csproj
+		SccProjectName6 = TestControl.Runner
+		SccLocalPath6 = TestControl.Runner
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = TestControl.Net.vsmdi
+	EndGlobalSection
+EndGlobal
