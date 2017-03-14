@@ -4,16 +4,6 @@
 
 TestControl is a light weight test automation framework for Windows Native, WinForm and WPF applications.
 
-##### Spy
-A simple Spy tool that identifies screen elements on your application and provides easy way to manipulate them.
-
-##### Tools and API
-Write your automation with your own choice of test frameworks that works in CI/CD integrations like MSTest, NUnit, Cucumber SpecFlow or using Fitnesse
-
-##### Time and Money
-Save time and Money with TestControl Framework, write automated tests for .NET in more reliable and in a resolution agnostic way.
-
-##### Key features 
 - A light weight framework - just few assembly DLLs required to get started
 - Spy Tool which helps to recognize the objects on the screen
 - Provides solid mechanism for identifying screen elements consistently in more reliable and in a resolution agnostic way
