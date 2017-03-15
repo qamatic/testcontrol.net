@@ -223,7 +223,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="get-started">Get started</h1>
+        <h1 id="introduction">Introduction</h1>
 
 <p>TestControl is a light weight test automation framework for Windows Native, WinForm and WPF applications.</p>
 
@@ -244,6 +244,104 @@
 
 <h2 id="installation">Installation</h2>
 
+<p>Download binaries and unzip to your favourite location or relative to your Visual Studio project</p>
+
+<ul>
+<li><a href="https://github.com/qamatic/testcontrol.net/raw/master/doc/www/files/TestControl-Rel-v3.zip">Download Release-binaries(x86/x64)-v3.zip</a> </li>
+</ul>
+
+<p>Note: Nuget distribution is not yet available at this time but eventually. </p>
+
+<h2 id="why-testcontrol">Why TestControl?</h2>
+
+<p>Well, the framework is being developed out of many hurdles and shortcomings with many other frameworks and tools available both open source and commerically. Most of the time, locating the control on the screen is the key for any successful automation but it has been a challenge.  So TestControl is trying to solve two main issues here: provide a precise way to locate a control on the screen and secondly be resilent to beat the failure!  Lastly, CEF browser automation which you will see in another section as how to automate using TestControl.</p>
+
+<h1 id="getting-started">Getting started</h1>
+
+<p>TestConntrol is a library is meant for people who have some .net developement skills because it does not offer record and replay mechanism. However it is not difficult for someone to work with very basic coding skills on C# or VB.  This framework written up around MS UIAutomation so highly recommended if any third party controls implement UIAutomation patterns in order to fully take control on accessing elements.   There are cases where paint events are drawing things on the screen and its simple imposible to capture those or to automate so that something you need to be aware of and will be discussed in advanced sections as how to overcome those.</p>
+
+<h2 id="write-a-simple-test">Write a simple test</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="n">ApplicationUnderTest</span> <span class="n">calcApp</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationUnderTest</span><span class="p">(</span><span class="s">@"C:\Windows\System32\", "</span><span class="n">calc</span><span class="p">.</span><span class="n">exe</span><span class="s">");
+</span>
+    <span class="c1">//build your locators</span>
+    <span class="kt">var</span> <span class="n">repo</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ControlLocatorDefRepo</span><span class="p">(</span><span class="s">"calcapp"</span><span class="p">);</span>
+    <span class="n">repo</span><span class="p">.</span><span class="nf">Wait</span><span class="p">(</span><span class="m">500</span><span class="p">);</span>  <span class="c1">// </span>
+    <span class="n">repo</span><span class="p">.</span><span class="nf">FindByName</span><span class="p">(</span><span class="s">"Calculator"</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// find calculator by its name</span>
+
+    <span class="c1">//now use locators to find</span>
+     <span class="kt">var</span> <span class="n">w</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Window</span><span class="p">();</span>
+     <span class="n">w</span><span class="p">.</span><span class="nf">SystemUnderTestFromRepo</span><span class="p">(</span><span class="s">"calcapp"</span><span class="p">);</span>
+     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"Calculator"</span><span class="p">,</span> <span class="n">w</span><span class="p">.</span><span class="n">Caption</span><span class="p">);</span>   
+</code></pre>
+<p>So the above example is using repository concept if you would like to keep key map to store your locators for later use</p>
+
+<h1 id="locators">Locators</h1>
+
+<h1 id="standard-controls">Standard Controls</h1>
+
+<h1 id="cef-browser-control">CEF Browser Control</h1>
+
+<p>CEF is a real chrome browser embedded into a window control.  CEF control is becoming popular as organisations are moving towards web offerings and discontiue developements on desktops. As a result, desktop applications are embedding web applications inside that makes automation complex because you need to have a seamless flow of automation between window controls on the applicatons and CEF control as a browser in order to manipulate its elements.  Rather reinvinting the wheel, TestControl uses Selenium drivers to work with but with modified version of chromedriver that can work along with TestControl.  So the modified version chromedriver.exe is named as TCChromeDriver.exe for our use.  </p>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="c1">// set your application under test</span>
+    <span class="n">IApplicationUnderTest</span> <span class="n">app</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationUnderTest</span><span class="p">(</span><span class="s">@"..\TestApps\", "</span><span class="n">ceftest</span><span class="p">.</span><span class="n">exe</span><span class="s">"); //ceftest.exe is a winform cotinaing cef control
+</span>
+    <span class="c1">//application main form has only a cef control browser control </span>
+    <span class="c1">//and your mainform window caption is set to "Google"</span>
+
+    <span class="n">app</span><span class="p">.</span><span class="nf">RunOnce</span><span class="p">();</span> <span class="c1">//now launch the application</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">app</span><span class="p">.</span><span class="nf">WaitForCaptionIfExists</span><span class="p">(</span><span class="s">"Google"</span><span class="p">,</span> <span class="m">20</span><span class="p">))</span>  <span class="c1">// wait for window appears with 20 retries</span>
+    <span class="p">{</span>
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">IsTrue</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="n">Assert</span><span class="p">.</span><span class="nf">Fail</span><span class="p">(</span><span class="s">"unable to get window caption"</span><span class="p">);</span>
+
+
+      <span class="c1">//locate the control as like any other .NET Control</span>
+    <span class="n">WebBrowserControl</span> <span class="n">aBrowser</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">WebBrowserControl</span><span class="p">(</span><span class="s">"chrome"</span><span class="p">);</span> <span class="c1">//browser type to chrome</span>
+    <span class="n">aBrowser</span><span class="p">.</span><span class="nf">SystemUnderTest</span><span class="p">(</span><span class="k">new</span> <span class="n">ControlLocatorDef</span><span class="p">&lt;</span><span class="n">FindControl</span><span class="p">&gt;(</span>
+                                        <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">FindByAutomationId</span><span class="p">(</span><span class="s">"Form1"</span><span class="p">,</span> <span class="k">true</span><span class="p">),</span> <span class="c1">//your main form id</span>
+                                        <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">FindByName</span><span class="p">(</span><span class="s">"Chrome Legacy Window"</span><span class="p">)</span> <span class="c1">//the spy shows the name as Chrome Legacy Window</span>
+            <span class="p">));</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">IsTrue</span><span class="p">(</span><span class="n">aBrowser</span><span class="p">.</span><span class="n">IsVisible</span><span class="p">);</span>  <span class="c1">//make sure your cef control is visible</span>
+
+
+    <span class="c1">//** make sure, for this test formshow event of main form is set to load google.com into the cef browser             </span>
+
+    <span class="c1">//now Testcontrol loads Selenium driver and switching to Selenium world</span>
+
+    <span class="c1">// goto an Url</span>
+    <span class="kt">var</span> <span class="n">url</span> <span class="p">=</span> <span class="n">aBrowser</span><span class="p">.</span><span class="n">InternalDriver</span><span class="p">.</span><span class="nf">GotoUrl</span><span class="p">(</span><span class="s">"http://msn.com"</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"http://msn.com"</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
+    <span class="n">url</span> <span class="p">=</span> <span class="n">aBrowser</span><span class="p">.</span><span class="n">InternalDriver</span><span class="p">.</span><span class="nf">GotoUrl</span><span class="p">(</span><span class="s">"http://yahoo.com"</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"http://yahoo.com"</span><span class="p">,</span> <span class="n">url</span><span class="p">);</span>
+
+
+    <span class="c1">//to find an element</span>
+    <span class="n">aBrowser</span><span class="p">.</span><span class="n">InternalDriver</span><span class="p">.</span><span class="nf">GotoUrl</span><span class="p">(</span><span class="s">"http://google.com"</span><span class="p">);</span>
+    <span class="kt">var</span> <span class="n">element</span> <span class="p">=</span> <span class="n">aBrowser</span><span class="p">.</span><span class="n">InternalDriver</span><span class="p">.</span><span class="nf">FindChild</span><span class="p">(</span><span class="s">"name:q"</span><span class="p">);</span> <span class="c1">// equivalent to ByName()</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">IsNotNull</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
+    <span class="n">element</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="s">"TDD"</span><span class="p">+</span> <span class="n">Enter</span><span class="p">;</span>
+    <span class="n">element</span> <span class="p">=</span> <span class="n">aBrowser</span><span class="p">.</span><span class="n">InternalDriver</span><span class="p">.</span><span class="nf">FindChild</span><span class="p">(</span><span class="s">"name:q"</span><span class="p">);</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"lst-ib"</span><span class="p">,</span> <span class="n">element</span><span class="p">.</span><span class="nf">AsString</span><span class="p">(</span><span class="s">"Attribute:id"</span><span class="p">));</span>
+
+
+    <span class="c1">//here is an example if you want use direct selenium way</span>
+    <span class="n">aBrowser</span><span class="p">.</span><span class="nf">GetWebDriver</span><span class="p">().</span><span class="n">Url</span> <span class="p">=</span> <span class="s">"http://www.littlewebhut.com/articles/html_iframe_example/"</span><span class="p">;</span>
+
+    <span class="kt">var</span> <span class="n">frame</span> <span class="p">=</span> <span class="n">aBrowser</span><span class="p">.</span><span class="nf">GetWebDriver</span><span class="p">().</span><span class="nf">FindElement</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="nf">Id</span><span class="p">(</span><span class="s">"imgbox"</span><span class="p">));</span>
+
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"http://www.littlewebhut.com/images/eightball.gif"</span><span class="p">,</span> <span class="n">frame</span><span class="p">.</span><span class="nf">GetAttribute</span><span class="p">(</span><span class="s">"src"</span><span class="p">));</span>
+
+    <span class="c1">//switch frame</span>
+    <span class="n">aBrowser</span><span class="p">.</span><span class="nf">GetWebDriver</span><span class="p">().</span><span class="nf">SwitchTo</span><span class="p">().</span><span class="nf">Frame</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+
+    <span class="kt">var</span> <span class="n">img</span> <span class="p">=</span> <span class="n">aBrowser</span><span class="p">.</span><span class="nf">GetWebDriver</span><span class="p">().</span><span class="nf">FindElement</span><span class="p">(</span><span class="n">By</span><span class="p">.</span><span class="nf">TagName</span><span class="p">(</span><span class="s">"img"</span><span class="p">));</span>
+    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="s">"http://www.littlewebhut.com/images/eightball.gif"</span><span class="p">,</span> <span class="n">img</span><span class="p">.</span><span class="nf">GetAttribute</span><span class="p">(</span><span class="s">"src"</span><span class="p">));</span>                
+
+
+</code></pre>
       </div>
       <div class="dark-box">
       </div>
