@@ -176,6 +176,7 @@
     $(".tab-shell code").prepend('<b class="langmargin">Shell:</b> </br>');
     $(".tab-java code").prepend('<b class="langmargin">Java:</b> </br>');
     $(".tab-xml code").prepend('<b class="langmargin">XML:</b> </br>');
+    $(".tab-csharp code").prepend('<b class="langmargin">C#:</b> </br>');
     $(".lang-selector a").on("click", function() {
       var language = $(this).data("language-name");
       pushURL(language);

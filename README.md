@@ -30,12 +30,6 @@ TestControl is a light weight test automation framework for Windows Native, WinF
 - C++Builder
 - 3rd Party Applications Controls
 
-##### Microsoft
-- Any Standard window controls
-- DevExpress Controls
-- Infragistics
-- WPF toolkit controls
-
 ##### Build Tools
 - Jenkin
 - TFS
