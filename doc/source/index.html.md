@@ -25,8 +25,7 @@ TestControl is a light weight test automation framework for Windows Native, WinF
 - Supports Embedded Chrome Browser (CEFSharp) thru Selenium Extension
 - Write your automation with your own choice of test runners like MSTest, NUnit, Cucumber SpecFlow or using Fitnesse
 - It is customizable with by writing your own plugin extenders for example like generate your own test scripts in any language or detail inspection of a UI element on the screen in a customized way
-- No license needed because its an OpenSource    
-
+ 
 
 ##Installation
 
@@ -66,16 +65,171 @@ TestConntrol is a library is meant for people who have some .net developement sk
  
  
 # Locators
+
+## Control Locator
+
+    Control locators are used to find the right element on the target window in order to automate further.  Control locators are defined in a sequence of actions using following locator types.  Window elements are hierarchical by nature for example window being the root element and drop down being a child element like that.   So one can use multiple locator types to navigate to target element of interest.  
+
+```cs
+       //define as how to locate an element 
+       var controldef = new ControlLocatorDef<FindControl>(
+                                                    () => new FindWindow("Demo Form"),   // locate the window first
+                                                    () => new FindByAutomationId("radioButton1") // and then locate the radio button using automation id
+                                                   );
+      
+      //now choose or define your target element to be in order to access its values or trigger events on them 
+      var radio = new RadioButtonControl();  // target element type
+      radio.SystemUnderTest( controldef ); // set the locator def here
+      radio.Selected = true; // now check radio button
+                                                   
+                                                   
+```
+
+
+##Find By Automation Id
+    Automation id is generally an unique id given for the elements.  
+    
+```cs
+
+    IFindControl findcontrol = FindByAutomationId("<automation id to locate a target element >");
+
+```
+    
+##Find By Caption
+```cs
+
+    IFindControl findcontrol = FindByCaption("<caption/text to be used to locate a target element>");
+
+```
+  
+##Find By Name
+```cs
+
+    IFindControl findcontrol = FindByName("<developers given name or OS based predefined names to be used to locate a target element>");
+
+```
+  
+  
+##Find Child By Caption
+```cs
+
+    IFindControl findcontrol = FindChildByCaption("<caption/text to be used to locate a target element from an root elementt>");
+
+```
+  
+##Find Desktop Window
+```cs
+
+    IFindControl findcontrol = FindDesktopWindow();  //returns your desktop window as your target element
+
+```
+  
+  
+##Find Window
+```cs
+
+    IFindControl findcontrol = FindWindow(<Caption>, <className optional>);  //locating a target window element by its caption or class name or combination of both.
+
+```
+  
+  
+##Find Window By Mouse Position
+```cs
+
+    IFindControl findcontrol = FindWindowByMousePosition();  //locating a target window element by current mouse position.
+
+```
+  
+
+##From Handle
+```cs
+
+    FromHandle(IntPtr handle);  //locating a target window element by HWND / window handle.
+
+```
+  
+  
+  
+##Mouse Click
+```cs
+
+    MouseClick(Point pt);  //send mouse click on the given point position
+
+```
+  
+  
+##Move Mouse
+```cs
+
+    MouseClick(int moveToX, int moveToY);  //move mouse cursor position to desired x and y coordinates
+
+```
+  
+##Right Click Mouse
+```cs
+
+    RightClickMouse();  //send right click on the current mouse cursor position
+
+```
+  
+  
+##Send Key Strokes
+```cs
+
+    SendKeyStrokes(keys);  //send key stroke, check microsoft documentation on SendKeys
+
+```
+    
+##Wait
+```cs
+
+    Wait(int milliSec);  //waits for given time in milli sec 
+    
+    //for example
+    
+   var controldef = new ControlLocatorDef<FindControl>(
+                                                () => new FindWindow("Demo Form"),   // locate the window first
+                                                () => new Wait(1000),  //wait for 1 sec before proceed next step
+                                                () => new FindByAutomationId("radioButton1") // and then locate the radio button using automation id
+                                               );
+                                                       
+
+```
+    
+##Click Non-Window Control By Caption
+```cs
+
  
- 
- 
+    ClickNonWindowControlByCaption(String[] captionPath, bool dblClick = false, int offsetX = 2, int offsetY = 2);  
+
+    //for example to work with context menu
+            var cdef = new ControlLocatorDef<IFindControl>(() => new FindbyCaption("Demo application"),
+                                                () => new RightClickMouse(),
+                                                () => new Wait(100),
+                                                () => new SendKeyStrokes("{DOWN}", true),
+                                                () => new Wait(100),
+                                                () => new FindWindowByMousePosition(),
+                                                () => new Wait(100),
+                                                () => new ClickNonWindowControlByCaption({"New", "Create folder"})  //under 'new' sub menu then click 'create folder' menu item
+                );
+            return cdef;    
+
+
+```
+    
+
+
+
+
+
+
 # Standard Controls
  
  
  
 # CEF Browser Control
  
- CEF is a real chrome browser embedded into a window control.  CEF control is becoming popular as organisations are moving towards web offerings and discontiue developements on desktops. As a result, desktop applications are embedding web applications inside that makes automation complex because you need to have a seamless flow of automation between window controls on the applicatons and CEF control as a browser in order to manipulate its elements.  Rather reinvinting the wheel, TestControl uses Selenium drivers to work with but with modified version of chromedriver that can work along with TestControl.  So the modified version chromedriver.exe is named as TCChromeDriver.exe for our use.  
+ CEF is a real chrome browser embedded into a window control.  CEF control is becoming popular as organisations are moving towards web offerings and discontiue developements on desktops. As a result, desktop applications are embedded with web applications inside that makes automation complex because you need to have a seamless flow of automation between window controls on the applicatons and CEF control as a browser in order to manipulate its elements.  Rather reinvinting the wheel, TestControl uses Selenium drivers to work with but with modified version of chromedriver that can work along with TestControl.  So the modified version chromedriver.exe is named as TCChromeDriver.exe for our use.  
  
  
  ```cs
