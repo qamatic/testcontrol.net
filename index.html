@@ -239,7 +239,6 @@
 <li>Supports Embedded Chrome Browser (CEFSharp) thru Selenium Extension</li>
 <li>Write your automation with your own choice of test runners like MSTest, NUnit, Cucumber SpecFlow or using Fitnesse</li>
 <li>It is customizable with by writing your own plugin extenders for example like generate your own test scripts in any language or detail inspection of a UI element on the screen in a customized way</li>
-<li>No license needed because its an OpenSource<br></li>
 </ul>
 
 <h2 id="installation">Installation</h2>
@@ -278,11 +277,122 @@
 
 <h1 id="locators">Locators</h1>
 
+<h2 id="control-locator">Control Locator</h2>
+
+<p>Control locators are used to find the right element on the target window in order to automate further.  Control locators are defined in a sequence of actions using following locator types.  Window elements are hierarchical by nature for example window being the root element and drop down being a child element like that.   So one can use multiple locator types to navigate to target element of interest.  </p>
+<pre class="highlight cs tab-csharp"><code>       <span class="c1">//define as how to locate an element </span>
+       <span class="kt">var</span> <span class="n">controldef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ControlLocatorDef</span><span class="p">&lt;</span><span class="n">FindControl</span><span class="p">&gt;(</span>
+                                                    <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">FindWindow</span><span class="p">(</span><span class="s">"Demo Form"</span><span class="p">),</span>   <span class="c1">// locate the window first</span>
+                                                    <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">FindByAutomationId</span><span class="p">(</span><span class="s">"radioButton1"</span><span class="p">)</span> <span class="c1">// and then locate the radio button using automation id</span>
+                                                   <span class="p">);</span>
+
+      <span class="c1">//now choose or define your target element to be in order to access its values or trigger events on them </span>
+      <span class="kt">var</span> <span class="n">radio</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RadioButtonControl</span><span class="p">();</span>  <span class="c1">// target element type</span>
+      <span class="n">radio</span><span class="p">.</span><span class="nf">SystemUnderTest</span><span class="p">(</span> <span class="n">controldef</span> <span class="p">);</span> <span class="c1">// set the locator def here</span>
+      <span class="n">radio</span><span class="p">.</span><span class="n">Selected</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span> <span class="c1">// now check radio button</span>
+
+
+</code></pre>
+<h2 id="find-by-automation-id">Find By Automation Id</h2>
+
+<p>Automation id is generally an unique id given for the elements.  </p>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="n">IFindControl</span> <span class="n">findcontrol</span> <span class="p">=</span> <span class="nf">FindByAutomationId</span><span class="p">(</span><span class="s">"&lt;automation id to locate a target element &gt;"</span><span class="p">);</span>
+
+</code></pre>
+<h2 id="find-by-caption">Find By Caption</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="n">IFindControl</span> <span class="n">findcontrol</span> <span class="p">=</span> <span class="nf">FindByCaption</span><span class="p">(</span><span class="s">"&lt;caption/text to be used to locate a target element&gt;"</span><span class="p">);</span>
+
+</code></pre>
+<h2 id="find-by-name">Find By Name</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="n">IFindControl</span> <span class="n">findcontrol</span> <span class="p">=</span> <span class="nf">FindByName</span><span class="p">(</span><span class="s">"&lt;developers given name or OS based predefined names to be used to locate a target element&gt;"</span><span class="p">);</span>
+
+</code></pre>
+<h2 id="find-child-by-caption">Find Child By Caption</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="n">IFindControl</span> <span class="n">findcontrol</span> <span class="p">=</span> <span class="nf">FindChildByCaption</span><span class="p">(</span><span class="s">"&lt;caption/text to be used to locate a target element from an root elementt&gt;"</span><span class="p">);</span>
+
+</code></pre>
+<h2 id="find-desktop-window">Find Desktop Window</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="n">IFindControl</span> <span class="n">findcontrol</span> <span class="p">=</span> <span class="nf">FindDesktopWindow</span><span class="p">();</span>  <span class="c1">//returns your desktop window as your target element</span>
+
+</code></pre>
+<h2 id="find-window">Find Window</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="n">IFindControl</span> <span class="n">findcontrol</span> <span class="p">=</span> <span class="nf">FindWindow</span><span class="p">(&lt;</span><span class="n">Caption</span><span class="p">&gt;,</span> <span class="p">&lt;</span><span class="k">class</span><span class="nc">Name</span> <span class="n">optional</span><span class="p">&gt;);</span>  <span class="c1">//locating a target window element by its caption or class name or combination of both.</span>
+
+</code></pre>
+<h2 id="find-window-by-mouse-position">Find Window By Mouse Position</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="n">IFindControl</span> <span class="n">findcontrol</span> <span class="p">=</span> <span class="nf">FindWindowByMousePosition</span><span class="p">();</span>  <span class="c1">//locating a target window element by current mouse position.</span>
+
+</code></pre>
+<h2 id="from-handle">From Handle</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="nf">FromHandle</span><span class="p">(</span><span class="n">IntPtr</span> <span class="n">handle</span><span class="p">);</span>  <span class="c1">//locating a target window element by HWND / window handle.</span>
+
+</code></pre>
+<h2 id="mouse-click">Mouse Click</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="nf">MouseClick</span><span class="p">(</span><span class="n">Point</span> <span class="n">pt</span><span class="p">);</span>  <span class="c1">//send mouse click on the given point position</span>
+
+</code></pre>
+<h2 id="move-mouse">Move Mouse</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="nf">MouseClick</span><span class="p">(</span><span class="kt">int</span> <span class="n">moveToX</span><span class="p">,</span> <span class="kt">int</span> <span class="n">moveToY</span><span class="p">);</span>  <span class="c1">//move mouse cursor position to desired x and y coordinates</span>
+
+</code></pre>
+<h2 id="right-click-mouse">Right Click Mouse</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="nf">RightClickMouse</span><span class="p">();</span>  <span class="c1">//send right click on the current mouse cursor position</span>
+
+</code></pre>
+<h2 id="send-key-strokes">Send Key Strokes</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="nf">SendKeyStrokes</span><span class="p">(</span><span class="n">keys</span><span class="p">);</span>  <span class="c1">//send key stroke, check microsoft documentation on SendKeys</span>
+
+</code></pre>
+<h2 id="wait">Wait</h2>
+<pre class="highlight cs tab-csharp"><code>
+    <span class="nf">Wait</span><span class="p">(</span><span class="kt">int</span> <span class="n">milliSec</span><span class="p">);</span>  <span class="c1">//waits for given time in milli sec </span>
+
+    <span class="c1">//for example</span>
+
+   <span class="kt">var</span> <span class="n">controldef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ControlLocatorDef</span><span class="p">&lt;</span><span class="n">FindControl</span><span class="p">&gt;(</span>
+                                                <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">FindWindow</span><span class="p">(</span><span class="s">"Demo Form"</span><span class="p">),</span>   <span class="c1">// locate the window first</span>
+                                                <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">Wait</span><span class="p">(</span><span class="m">1000</span><span class="p">),</span>  <span class="c1">//wait for 1 sec before proceed next step</span>
+                                                <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">FindByAutomationId</span><span class="p">(</span><span class="s">"radioButton1"</span><span class="p">)</span> <span class="c1">// and then locate the radio button using automation id</span>
+                                               <span class="p">);</span>
+
+
+</code></pre>
+<h2 id="click-non-window-control-by-caption">Click Non-Window Control By Caption</h2>
+<pre class="highlight cs tab-csharp"><code>
+
+    <span class="nf">ClickNonWindowControlByCaption</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">captionPath</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">dblClick</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span> <span class="kt">int</span> <span class="n">offsetX</span> <span class="p">=</span> <span class="m">2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">offsetY</span> <span class="p">=</span> <span class="m">2</span><span class="p">);</span>  
+
+    <span class="c1">//for example to work with context menu</span>
+            <span class="kt">var</span> <span class="n">cdef</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ControlLocatorDef</span><span class="p">&lt;</span><span class="n">IFindControl</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">FindbyCaption</span><span class="p">(</span><span class="s">"Demo application"</span><span class="p">),</span>
+                                                <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">RightClickMouse</span><span class="p">(),</span>
+                                                <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">Wait</span><span class="p">(</span><span class="m">100</span><span class="p">),</span>
+                                                <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">SendKeyStrokes</span><span class="p">(</span><span class="s">"{DOWN}"</span><span class="p">,</span> <span class="k">true</span><span class="p">),</span>
+                                                <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">Wait</span><span class="p">(</span><span class="m">100</span><span class="p">),</span>
+                                                <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">FindWindowByMousePosition</span><span class="p">(),</span>
+                                                <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">Wait</span><span class="p">(</span><span class="m">100</span><span class="p">),</span>
+                                                <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">ClickNonWindowControlByCaption</span><span class="p">({</span><span class="s">"New"</span><span class="p">,</span> <span class="s">"Create folder"</span><span class="p">})</span>  <span class="c1">//under 'new' sub menu then click 'create folder' menu item</span>
+                <span class="p">);</span>
+            <span class="k">return</span> <span class="n">cdef</span><span class="p">;</span>    
+
+
+</code></pre>
 <h1 id="standard-controls">Standard Controls</h1>
 
 <h1 id="cef-browser-control">CEF Browser Control</h1>
 
-<p>CEF is a real chrome browser embedded into a window control.  CEF control is becoming popular as organisations are moving towards web offerings and discontiue developements on desktops. As a result, desktop applications are embedding web applications inside that makes automation complex because you need to have a seamless flow of automation between window controls on the applicatons and CEF control as a browser in order to manipulate its elements.  Rather reinvinting the wheel, TestControl uses Selenium drivers to work with but with modified version of chromedriver that can work along with TestControl.  So the modified version chromedriver.exe is named as TCChromeDriver.exe for our use.  </p>
+<p>CEF is a real chrome browser embedded into a window control.  CEF control is becoming popular as organisations are moving towards web offerings and discontiue developements on desktops. As a result, desktop applications are embedded with web applications inside that makes automation complex because you need to have a seamless flow of automation between window controls on the applicatons and CEF control as a browser in order to manipulate its elements.  Rather reinvinting the wheel, TestControl uses Selenium drivers to work with but with modified version of chromedriver that can work along with TestControl.  So the modified version chromedriver.exe is named as TCChromeDriver.exe for our use.  </p>
 <pre class="highlight cs tab-csharp"><code>
     <span class="c1">// set your application under test</span>
     <span class="n">IApplicationUnderTest</span> <span class="n">app</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ApplicationUnderTest</span><span class="p">(</span><span class="s">@"..\TestApps\", "</span><span class="n">ceftest</span><span class="p">.</span><span class="n">exe</span><span class="s">"); //ceftest.exe is a winform cotinaing cef control
