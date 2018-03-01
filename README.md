@@ -1,3 +1,5 @@
+(moved from codeplex 2010-2016 repo to here)
+
 ![logo](https://github.com/qamatic/testcontrol.net/blob/master/doc/www/img/bullseye120.png)
 # Testcontrol.Net
 ##Windows desktop automation made easy!
