@@ -1,5 +1,6 @@
-(migrated from codeplex repo [2010-2016)] to github)
 ![logo](https://github.com/qamatic/testcontrol.net/blob/master/doc/www/img/bullseye120.png)
+
+(migrated from codeplex repo [2010-2016)] to github)
 # Testcontrol.Net
 ##Windows desktop automation made easy!
 
